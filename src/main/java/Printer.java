@@ -2,6 +2,27 @@ public class Printer {
 
     private int toner;
     private int paper;
+
+    public Printer(int paper, int toner){
+        this.paper = paper;
+        this.toner = toner;
+    }
+
+    public int checkPaper(){
+        return this.paper;
+    }
+
+    public int checkToner(){
+        return this.toner;
+    }
+
+    public int print(int numberOfPages, int numberOfCopies){
+        if (numberOfPages * numberOfCopies <= this.paper){
+            this.toner -= (numberOfPages * numberOfCopies);
+            return this.paper -= (numberOfPages * numberOfCopies);
+        }
+        return this.paper;
+    }
 }
 
 
